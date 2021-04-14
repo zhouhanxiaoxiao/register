@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <transition>
+      <router-view></router-view>
+    </transition>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import light from "@/assets/light.jpg"
 export default {
   name: 'App',
   components: {
-    HelloWorld
+  },
+  beforeMount() {
+    this.$("body").css("background",`url(${light}) center no-repeat`);
+    this.$("body").css("background-size","cover");
   }
 }
 </script>
